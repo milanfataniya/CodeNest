@@ -1,0 +1,147 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+html, body {
+  background-color: #2d2f3a;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.quiz-card {
+  width: 650px;
+  max-width: 100%;
+  background-color: rgba(17, 24, 39, 0.95);
+  color: #f8fafc;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  padding: 35px 30px;
+  text-align: center;
+}
+
+.quiz-title {
+  color: #10b981;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.quiz-rules {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.quiz-rules ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quiz-rules ul li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.quiz-rules ul li i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.quiz-note {
+  background-color: #1f2937 !important;
+  color: #ff4c4c;
+  border-left: 4px solid #ff4c4c;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  margin-top: 20px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.start-btn {
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+.start-btn:hover {
+  background-color: #0d9a6e;
+  transform: scale(1.05);
+}
+</style>
+
+<div class="main-container">
+  <div class="quiz-card">
+
+    <h3 class="quiz-title">
+      <i class="bi bi-journal-check"></i> Python Quiz Rules
+    </h3>
+
+<div class="quiz-rules">
+  <ul>
+    <li>
+      <i class="bi bi-stopwatch" style="color:#10b981;"></i>
+      <span>You’ll get <strong>60 seconds</strong> to finish all questions — manage your time carefully.</span>
+    </li>
+    <li>
+      <i class="bi bi-list-ol" style="color:#10b981;"></i>
+      <span>The quiz includes <strong>15 questions</strong>.</span>
+    </li>
+    <li>
+      <i class="bi bi-trophy" style="color:#10b981;"></i>
+      <span>To <strong>pass</strong>, answer at least <strong>10 questions</strong> correctly.</span>
+    </li>
+    <li>
+      <i class="bi bi-arrow-clockwise" style="color:#10b981;"></i>
+      <span>Avoid <strong>refreshing</strong> or <strong>reloading</strong> the page — doing so will erase your progress.</span>
+    </li>
+    <li>
+      <i class="bi bi-eye" style="color:#10b981;"></i>
+      <span>After submission, you’ll immediately see which answers were <strong>correct</strong> or <strong>wrong</strong>.</span>
+    </li>
+    <li>
+      <i class="bi bi-graph-up" style="color:#10b981;"></i>
+      <span>You can review your performance and learn from your mistakes instantly.</span>
+    </li>
+    <li>
+      <i class="bi bi-file-earmark-arrow-down" style="color:#10b981;"></i>
+      <span>You can <strong>download your quiz results</strong> as a CSV file for later review.</span>
+    </li>
+
+  </ul>
+</div>
+
+    <div class="quiz-note">
+      Once you click <strong>Start Quiz</strong>, the timer begins immediately — no pauses!
+    </div>
+
+    <a href="/python_quiz" class="btn btn-success btn-lg start-btn">
+      <i class="bi bi-play-circle-fill"></i> Start Quiz
+    </a>
+  </div>
+</div>
+<br><br><br>
+
+{% endblock %}

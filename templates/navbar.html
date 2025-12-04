@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeNest</title>
+  {% block content %}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #f1f5f9;
+      background: linear-gradient(rgba(15,23,42,0.85), rgba(17,24,39,0.85)),
+                  url('https://images.unsplash.com/photo-1581092333727-2e8f9d8f1633?fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(17,24,39,0.9);
+      padding: 12px 5%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Chatbot Button */
+    #chatbotBtn {
+      position: fixed;
+     bottom: 90px;
+     left: 25px;
+      z-index: 1000;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      outline: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: bounceChat 1.5s infinite;
+    }
+
+    #chatbotBtn:hover {
+      background-color: #0d946b;
+      transform: scale(1.1);
+    }
+
+    @keyframes bounceChat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(17,24,39,0.9);
+      padding: 12px 5%;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #10b981 !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand i {
+      margin-right: 10px;
+      font-size: 2rem;
+    }
+
+    .navbar-nav .nav-link {
+      color: #f1f5f9 !important;
+      font-weight: 500;
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #10b981 !important;
+      transform: scale(1.05);
+      background-color: rgba(16, 185, 129, 0.15);
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 6px 12px;
+      transition: all 0.25s ease;
+    }
+
+    .dropdown-item i {
+      margin-right: 10px;
+    }
+
+    .dropdown-item:hover {
+      background: white;
+      color: #10b981 !important;
+      border-radius: 10px;
+    }
+
+    .dropdown-menu.dropdown-menu-dark {
+      background: rgba(17, 24, 39, 0.9);
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background: #1e293b;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      line-height: 1.2;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: -15px;
+      position: static;
+    }
+
+    .footer-icons a {
+      color: white;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-icons a:hover {
+      color: #10b981;
+    }
+
+    /* Scroll-to-Top Button */
+    #scrollTopBtn {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      z-index: 1000;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      animation: none;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+      animation: jumpUp 1.2s infinite ease-in-out;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #0d946b;
+      transform: scale(1.15);
+    }
+
+    @keyframes jumpUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .navbar-toggler {
+      border-color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+
+<body>
+  <br><br><br><br>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#"><i class="fas fa-code"></i> CodeNest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
+      
+       
+        <li class="nav-item">
+          <a class="nav-link" href="/ai_code"><i class="fas fa-robot"></i> <strong>AI</strong> Code Generator</a>
+        </li>
+     
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="fas fa-code"></i> Editor</a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="/editor"><i class="fab fa-html5" style="color:#10b981;"></i> Web Editor</a></li>
+            <li><a class="dropdown-item" href="/ide"><i class="fab fa-python" style="color:#10b981;"></i> Python</a></li>
+    
+               
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="fas fa-question-circle"></i> Quiz</a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="/web_rule"><i class="fab fa-html5" style="color:#10b981;"></i> Web</a></li>
+            <li><a class="dropdown-item" href="/python_rule"><i class="fab fa-python" style="color:#10b981;"></i> Python</a></li>
+              
+         
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="fas fa-book"></i> Tutorial</a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="/web_tutorial"><i class="fab fa-html5" style="color:#10b981;"></i> HTML</a></li>
+            <li><a class="dropdown-item" href="/css_tutorial01"><i class="fab fa-css3-alt" style="color:#10b981;"></i> CSS</a></li>
+            <li><a class="dropdown-item" href="/js_tutorial"><i class="fab fa-js" style="color:#10b981;"></i> JavaScript</a></li>
+            <li><a class="dropdown-item" href="/python_tutorial"><i class="fab fa-python" style="color:#10b981;"></i> Python</a></li>
+      
+
+     
+          </ul>
+        </li>
+          <li class="nav-item">
+        <a class="nav-link" href="/project-showcase">
+          <i class="fas fa-lightbulb"></i> Project Ideas
+        </a>
+      </li>
+        <li class="nav-item">
+          <a class="btn btn-danger ms-3 me-5" href="/logout" style="font-weight:600;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+
+        <li class="nav-item d-flex align-items-center" id="userInfoBtn" style="cursor:pointer;">
+          <i class="fas fa-user" style="color:#10b981; font-size:1.4rem; margin-right:10px;"></i>
+          <span style="color:#10b981; font-size:1.1rem; font-weight:500;">{{ session.username|capitalize }}</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Chatbot Button -->
+  <a href="/ai_chat" id="chatbotBtn" title="Chat with CodeNest AI">
+    <i class="fas fa-comments"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy;  <span class="text-success">CodeNest</span></p>
+    <div class="footer-icons">
+      <a href="https://github.com/milanfataniya" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/milan-fataniya-90481b298/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:milanfataniya2021@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+  {% endblock %}
+</body>
+</html>

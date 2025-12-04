@@ -1,0 +1,273 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+ html, body {
+        background-color: #2d2f3a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #fff;
+        margin-top: 30px;
+    }
+
+    #myid {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        font-family: monospace;
+    }
+
+    #info {
+        background-color: #1e1f29;
+        color: #ddd;
+        padding: 25px 30px;
+        border-radius: 12px;
+        max-width: 700px;
+        margin: 30px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .code-block {
+        width: 70%;
+        margin: 20px auto 40px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border-left: 4px solid #4a90e2;
+        font-family: monospace;
+    }
+
+    .code-block .selector { color: #d7ba7d; }
+    .code-block .property { color: #9cdcfe; }
+    .code-block .value { color: #ce9178; }
+    .code-block .comment { color: #6a9955; font-style: italic; }
+
+    h6 {
+        background-color: #252734;
+        color: #fff;
+        padding: 10px 15px;
+        border-left: 4px solid #FFA500;
+        font-style: italic;
+        font-size: 14px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+</style>
+
+
+<h1>Introduction to CSS</h1>
+<div id="myid">
+    <p>
+        CSS (Cascading Style Sheets) is used to style HTML elements. 
+        It controls layout, colors, fonts, spacing, and responsiveness of webpages.
+         CSS can be applied inline, internally in a <code>&lt;style&gt;</code> block, or externally via a separate stylesheet.
+    </p>
+</div>
+
+
+
+<h2>CSS Examples</h2>
+
+<!-- 1. Text Color -->
+<div class="code-block">
+<span class="comment">/* 1. Text Color */</span><br>
+<span class="selector">p</span> {<br>
+&nbsp;&nbsp;<span class="property">color</span>: <span class="value">red</span>;<br>
+}
+<h6>Changes the text color to red.</h6>
+</div>
+
+<!-- 2. Background Color -->
+<div class="code-block">
+<span class="comment">/* 2. Background Color */</span><br>
+<span class="selector">body</span> {<br>
+&nbsp;&nbsp;<span class="property">background-color</span>: <span class="value">#333</span>;<br>
+}
+<h6>Sets the background color of the webpage.</h6>
+</div>
+
+<!-- 3. Font Size -->
+<div class="code-block">
+<span class="comment">/* 3. Font Size */</span><br>
+<span class="selector">h1</span> {<br>
+&nbsp;&nbsp;<span class="property">font-size</span>: <span class="value">36px</span>;<br>
+}
+<h6>Changes the size of the heading text.</h6>
+</div>
+
+<!-- 4. Font Family -->
+<div class="code-block">
+<span class="comment">/* 4. Font Family */</span><br>
+<span class="selector">p</span> {<br>
+&nbsp;&nbsp;<span class="property">font-family</span>: <span class="value">Arial, sans-serif</span>;<br>
+}
+<h6>Sets the font for paragraph text.</h6>
+</div>
+
+<!-- 5. Text Alignment -->
+<div class="code-block">
+<span class="comment">/* 5. Text Alignment */</span><br>
+<span class="selector">h2</span> {<br>
+&nbsp;&nbsp;<span class="property">text-align</span>: <span class="value">center</span>;<br>
+}
+<h6>Centers the heading text horizontally.</h6>
+</div>
+
+<!-- 6. Margin -->
+<div class="code-block">
+<span class="comment">/* 6. Margin */</span><br>
+<span class="selector">div</span> {<br>
+&nbsp;&nbsp;<span class="property">margin</span>: <span class="value">20px</span>;<br>
+}
+<h6>Adds space outside the element.</h6>
+</div>
+
+<!-- 7. Padding -->
+<div class="code-block">
+<span class="comment">/* 7. Padding */</span><br>
+<span class="selector">div</span> {<br>
+&nbsp;&nbsp;<span class="property">padding</span>: <span class="value">15px</span>;<br>
+}
+<h6>Adds space inside the element.</h6>
+</div>
+
+<!-- 8. Border -->
+<div class="code-block">
+<span class="comment">/* 8. Border */</span><br>
+<span class="selector">p</span> {<br>
+&nbsp;&nbsp;<span class="property">border</span>: <span class="value">2px solid #fff</span>;<br>
+}
+<h6>Adds a white border around the paragraph.</h6>
+</div>
+
+<!-- 9. Width -->
+<div class="code-block">
+<span class="comment">/* 9. Width */</span><br>
+<span class="selector">div.container</span> {<br>
+&nbsp;&nbsp;<span class="property">width</span>: <span class="value">80%</span>;<br>
+}
+<h6>Sets the width of the container to 80% of parent.</h6>
+</div>
+
+<!-- 10. Height -->
+<div class="code-block">
+<span class="comment">/* 10. Height */</span><br>
+<span class="selector">div.container</span> {<br>
+&nbsp;&nbsp;<span class="property">height</span>: <span class="value">200px</span>;<br>
+}
+<h6>Sets the height of the element.</h6>
+</div>
+
+<!-- 11. Display -->
+<div class="code-block">
+<span class="comment">/* 11. Display */</span><br>
+<span class="selector">span</span> {<br>
+&nbsp;&nbsp;<span class="property">display</span>: <span class="value">inline-block</span>;<br>
+}
+<h6>Changes how an element is displayed (block, inline, inline-block).</h6>
+</div>
+
+<!-- 12. Float -->
+<div class="code-block">
+<span class="comment">/* 12. Float */</span><br>
+<span class="selector">img</span> {<br>
+&nbsp;&nbsp;<span class="property">float</span>: <span class="value">left</span>;<br>
+}
+<h6>Floats image to the left of text.</h6>
+</div>
+
+<!-- 13. Text Decoration -->
+<div class="code-block">
+<span class="comment">/* 13. Text Decoration */</span><br>
+<span class="selector">a</span> {<br>
+&nbsp;&nbsp;<span class="property">text-decoration</span>: <span class="value">none</span>;<br>
+}
+<h6>Removes underline from links.</h6>
+</div>
+
+<!-- 14. Background Image -->
+<div class="code-block">
+<span class="comment">/* 14. Background Image */</span><br>
+<span class="selector">body</span> {<br>
+&nbsp;&nbsp;<span class="property">background-image</span>: <span class="value">url('bg.jpg')</span>;<br>
+&nbsp;&nbsp;<span class="property">background-size</span>: <span class="value">cover</span>;<br>
+}
+<h6>Adds a background image that covers the whole page.</h6>
+</div>
+
+<!-- 15. Opacity -->
+<div class="code-block">
+<span class="comment">/* 15. Opacity */</span><br>
+<span class="selector">div</span> {<br>
+&nbsp;&nbsp;<span class="property">opacity</span>: <span class="value">0.8</span>;<br>
+}
+<h6>Makes the element semi-transparent.</h6>
+</div>
+
+<!-- 16. Box Shadow -->
+<div class="code-block">
+<span class="comment">/* 16. Box Shadow */</span><br>
+<span class="selector">div</span> {<br>
+&nbsp;&nbsp;<span class="property">box-shadow</span>: <span class="value">0 4px 10px rgba(0,0,0,0.5)</span>;<br>
+}
+<h6>Adds shadow around the box.</h6>
+</div>
+
+<!-- 17. Text Shadow -->
+<div class="code-block">
+<span class="comment">/* 17. Text Shadow */</span><br>
+<span class="selector">h1</span> {<br>
+&nbsp;&nbsp;<span class="property">text-shadow</span>: <span class="value">2px 2px #000</span>;<br>
+}
+<h6>Adds shadow to text.</h6>
+</div>
+
+<!-- 18. Border Radius -->
+<div class="code-block">
+<span class="comment">/* 18. Border Radius */</span><br>
+<span class="selector">div</span> {<br>
+&nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">10px</span>;<br>
+}
+<h6>Makes element corners rounded.</h6>
+</div>
+
+<!-- 19. Overflow -->
+<div class="code-block">
+<span class="comment">/* 19. Overflow */</span><br>
+<span class="selector">div.box</span> {<br>
+&nbsp;&nbsp;<span class="property">overflow</span>: <span class="value">auto</span>;<br>
+}
+<h6>Controls content overflow within a container.</h6>
+</div>
+
+<!-- 20. Transition -->
+<div class="code-block">
+<span class="comment">/* 20. Transition */</span><br>
+<span class="selector">div.button</span> {<br>
+&nbsp;&nbsp;<span class="property">transition</span>: <span class="value">all 0.3s ease</span>;<br>
+}
+<h6>Animates changes to element properties smoothly.</h6>
+</div>
+
+<br><br><br><br>
+{% endblock %}

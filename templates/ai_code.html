@@ -1,0 +1,147 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+.ai-generator-page {
+    background-color: #0f172a;
+    font-family: 'Poppins', sans-serif;
+    color: #f1f5f9;
+    min-height: 100vh;
+    padding: 60px 0;
+    transition: background-color 0.6s ease;
+}
+
+.ai-generator-page .container {
+    width: 60%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border: 1px solid #334155;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.ai-generator-page .container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(16,185,129,0.4);
+    border-color: #10b981;
+}
+
+.ai-generator-page h2 {
+    color: #10b981;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.ai-generator-page h2 i {
+    color: #10b981;
+    margin-right: 10px;
+}
+
+.ai-generator-page label {
+    display: block;
+    margin: 10px 0 8px;
+    color: #cbd5e1;
+    text-align: left;
+    font-weight: 500;
+}
+
+.ai-generator-page textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #f8fafc;
+    font-size: 15px;
+    resize: vertical;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.ai-generator-page textarea:focus {
+    border-color: #334155;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+    outline: none;
+}
+
+.ai-generator-page button {
+    width: 100%;
+    padding: 12px;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: #0f172a;
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+.ai-generator-page button:hover {
+    background: #059669;
+}
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #0f172a;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 8px;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<div class="ai-generator-page">
+    <div class="container">
+        <h2><i class="fas fa-robot"></i> AI Code Generator</h2>
+        <!-- ✅ Added onsubmit -->
+        <form method="POST" onsubmit="showLoading()">
+            <label for="prompt">Enter your code request:</label>
+            <textarea id="prompt" name="prompt" rows="4" placeholder="e.g. Write Python code for a calculator"></textarea>
+            <button type="submit" id="generate-btn"><i class="fas fa-bolt"></i> Generate Code</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function showLoading() {
+    const btn = document.getElementById('generate-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Generating...';
+}
+
+const textarea = document.getElementById('prompt');
+const button = document.getElementById('generate-btn');
+
+// Disable button at start
+button.disabled = true;
+button.style.opacity = "0";
+button.style.cursor = "not-allowed";
+
+// When typing, check if empty or not
+textarea.oninput = function() {
+    if (textarea.value.trim() !== "") {
+        button.disabled = false;
+        button.style.opacity = "1";
+        button.style.cursor = "pointer";
+    } else {
+        button.disabled = true;
+        button.style.opacity = "0";
+        button.style.cursor = "not-allowed";
+    }
+};
+</script>
+{% endblock %}

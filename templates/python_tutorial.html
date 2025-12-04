@@ -1,0 +1,382 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+
+    html, body {
+        background-color: #2d2f3a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding:  0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #fff;
+        margin-top: 30px;
+    }
+    p {
+        margin-bottom: 15px;
+    }
+    #myid {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1e1f29; /* dark inner box */
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        font-family: monospace;
+    }
+
+    #info {
+        background-color: #1e1f29;
+        color: #ddd;
+        padding: 25px 30px;
+        border-radius: 12px;
+        max-width: 700px;
+        margin: 30px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    #info h2 {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+    }
+
+    #info p {
+        margin-bottom: 15px;
+        font-size: 1.1em;
+    }
+
+    /* Code Blocks */
+    .code-block {
+        width: 70%;
+        margin: 20px auto 40px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border-left: 4px solid #4a90e2;
+        font-family: monospace;
+    }
+
+    /* Syntax Highlighting */
+    .code-block .keyword { color: #569CD6; font-weight: bold; }
+    .code-block .string { color: #CE9178; }
+    .code-block .comment { color: #6A9955; font-style: italic; }
+    .code-block .number { color: #B5CEA8; }
+    .code-block .function { color: #DCDCAA; }
+    .code-block .variable { color: #9CDCFE; }
+
+    /* Note box */
+  h6 {
+    background-color: #252734;  /* Slightly lighter dark background */
+    color: #fff;                 /* White text for better readability */
+    padding: 10px 15px;
+    border-left: 4px solid #FFA500; /* Orange border to indicate explanation */
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+</style>
+
+<h1>Introduction to Python</h1>
+<div id="myid">
+    <p>
+        Python is a  high-level, interpreted programming language known for its simplicity and readability. 
+        It was created by Guido van Rossum and first released in 1991. Python is widely used for web 
+        development, data analysis, artificial intelligence, scientific computing, automation, and more.
+    </p>
+  
+</div>
+
+
+
+
+</div> 
+
+<h2>Python Examples</h2>
+<div class="code-block">
+<span class="comment" > 1. Hello World</span>
+<span class="function">print</span>"Hello, World!"<br><br>
+<h6>This program prints the text "Hello, World!" on the screen. It uses the <code>print()</code> function to display output.</h6>
+
+</div>
+
+<div class="code-block">
+    <span class="comment" > 2. Variable</span>
+    <span class="function">
+        age = 20
+        name = "Alice"
+        print("Name:", name)
+        print("Age:", age)
+</span>
+<h6>This program demonstrates how to use variables in Python. It stores a name and age in variables and then prints them using the <code>print()</code> function.</h6>
+</div>
+<div class="code-block">
+    <span class="comment" >3. Comments</span>
+    <span class="function">
+        <span class="comment"> # Single-line comment</span>
+        print("Hello, CodeNest!")  # Prints text
+        """
+        Multi-line comment
+        This is ignored by Python
+        """
+    </span>
+    <h6>
+        Shows single-line and multi-line comments. Python ignores text after <code>#</code> or inside <code>""" """</code>.
+    </h6>
+</div>
+<div class="code-block">
+    <span class="comment">4. Data Types</span>
+    <span class="function">
+       age = 25
+       price = 99.99
+       name = "CodeNest"
+       is_active = True
+       print("Age:", age)
+       print("Price:", price)
+       print("Name:", name)
+       print("Active:", is_active)
+    </span>
+    <h6>
+        Demonstrates Python data types: <code>int</code>, <code>float</code>, <code>str</code>, and <code>bool</code>.
+    </h6>
+</div>
+<div class="code-block">
+    <span class="comment"  >5. Simple Operations</span>
+    <span class="function">
+        a = 10
+        b = 5
+      <span class="comment">   # Addition</span>
+        sum = a + b
+       <span class="comment">  # Subtraction</span>
+        diff = a - b
+       <span class="comment">  # Multiplication</span>
+        prod = a * b
+      <span class="comment">   # Division</span>
+        div = a / b
+        print("Sum:", sum)
+        print("Difference:", diff)
+        print("Product:", prod)
+        print("Division:", div)
+    </span>
+    <h6>
+        Shows basic arithmetic operations using variables in Python: addition, subtraction, multiplication, and division.
+    </h6>
+</div>
+
+<div class="code-block">
+    <span class="comment">6. Operators</span>
+    <span class="function">
+        a = 10
+        b = 3
+
+      <span class="comment">   # Arithmetic Operators</span>
+        print("Addition:", a + b)
+        print("Subtraction:", a - b)
+        print("Multiplication:", a * b)
+        print("Division:", a / b)
+        print("Modulus:", a % b)
+        print("Floor Division:", a // b)
+        print("Exponent:", a ** b)
+
+     <span class="comment">    # Comparison Operators</span>
+        print("Equal:", a == b)
+        print("Not Equal:", a != b)
+        print("Greater:", a > b)
+        print("Less:", a < b)
+        print("Greater or Equal:", a >= b)
+        print("Less or Equal:", a <= b)
+
+       <span class="comment">  # Logical Operators</span>
+        print("and:", a > 5 and b < 5)
+        print("or:", a > 5 or b > 5)
+        print("not:", not(a > b))
+
+       <span class="comment">  # Assignment Operators</span>
+        c = 5
+        c += 2  # c = c + 2
+        print("Assignment += :", c)
+    </span>
+    <h6>
+        Demonstrates Python operators: arithmetic, comparison, logical, and assignment.
+    </h6>
+</div>
+    <h2>Conditional</h2>
+<div class="code-block">
+    <span class="comment">7. If, Elif, Else</span>
+    <span class="function">
+        x = 20
+        <span class="comment"># Check if x is less than 10</span>
+        if x < 10:
+            print("x is less than 10")
+        <span class="comment"># Check if x is between 10 and 30</span>
+        elif x <= 30:
+            print("x is between 10 and 30")
+        <span class="comment"># If none of the above conditions are true</span>
+        else:
+            print("x is greater than 30")
+    </span>
+    <h6>
+        Demonstrates decision-making in Python using <code>if</code>, <code>elif</code>, and <code>else</code>.
+    </h6>
+</div>
+<h2>loop's</h2>
+<div class="code-block">
+    <span class="comment">8. For Loop - Simple Numbers</span>
+    <span class="function">
+        for i in range(1, 6):
+            print(i)
+    </span>
+    <h6>Prints numbers from 1 to 5 using a <code>for</code> loop and <code>range()</code>.</h6>
+    
+</div>
+
+<div class="code-block">
+    <span class="comment">9. While Loop - Simple Numbers</span>
+    <span class="function">
+        i = 1
+        while i <= 5:
+            print(i)
+            i += 1
+    </span>
+    <h6>Prints numbers from 1 to 5 using a <code>while</code> loop.</h6>
+  
+</div>
+<h2>String Function<h2>
+    <div class="code-block">
+    <span class="comment">10. Creating Strings</span>
+    <span class="function">
+        str1 = "Hello"
+        str2 = 'Python'
+        print(str1)
+        print(str2)
+    </span>
+    <h6>Shows how to create strings using double or single quotes.</h6>
+   
+</div>
+<div class="code-block">
+    <span class="comment">11. String Indexing & Slicing</span>
+    <span class="function">
+        text = "CodeNest"
+        print(text[0])       <span class="comment"># First character</span>
+        print(text[-1])      <span class="comment"># Last character</span>
+        print(text[0:4])     <span class="comment"># Characters from index 0 to 3</span>
+        print(text[4:])      <span class="comment"># Characters from index 4 to end</span>
+    </span>
+    <h6>Access individual characters or parts of a string using indexing and slicing.</h6>
+  
+</div>
+<div class="code-block">
+    <span class="comment">12. String Methods</span>
+    <span class="function">
+        text = "CodeNest"
+        print(text.upper())         <span class="comment"># Convert to uppercase</span>
+        print(text.lower())         <span class="comment"># Convert to lowercase</span>
+        print(len(text))            <span class="comment"># Length of string</span>
+        print(text.replace("Nest", "World")) <span class="comment"># Replace part of string</span>
+    </span>
+    <h6>Demonstrates useful string methods: <code>upper()</code>, <code>lower()</code>, <code>len()</code>, <code>replace()</code>.</h6>
+  
+</div>
+<div class="code-block">
+    <span class="comment">13. String Concatenation & Repetition</span>
+    <span class="function">
+        str1 = "Hello"
+        str2 = "World"
+        print(str1 + " " + str2)   <span class="comment"># Concatenation</span>
+        print(str1 * 3)            <span class="comment"># Repetition</span>
+    </span>
+    <h6>Combine strings using <code>+</code> and repeat strings using <code>*</code>.</h6>
+  
+</div>
+<div class="code-block">
+    <span class="comment">14. Lists</span>
+    <span class="function">
+        fruits = ["Apple", "Banana", "Mango"]
+        print(fruits)
+    </span>
+    <h6>Demonstrates a simple list in Python. Lists store multiple items in order.</h6>
+ 
+</div>
+
+<div class="code-block">
+    <span class="comment">15. Tuples</span>
+    <span class="function">
+        colors = ("Red", "Green", "Blue")
+        print(colors)
+    </span>
+    <h6>Demonstrates a tuple. Tuples are like lists but immutable (cannot be changed).</h6>
+
+</div>
+
+<div class="code-block">
+    <span class="comment">16. Sets</span>
+    <span class="function">
+        nums = {1, 2, 3}
+        print(nums)
+    </span>
+    <h6>Demonstrates a set. Sets store unique items and have no particular order.</h6>
+ 
+</div>
+
+<div class="code-block">
+    <span class="comment">17. Dictionaries</span>
+    <span class="function">
+        student = {"name": "Alice", "age": 20}
+        print(student)
+    </span>
+    <h6>Demonstrates a dictionary. Dictionaries store data in key-value pairs.</h6>
+
+</div>
+<div class="code-block">
+    <span class="comment">18. Defining Functions</span>
+    <span class="function">
+        def greet():
+            print("Hello, CodeNest!")
+        greet()
+    </span>
+    <h6>Defines a simple function using <code>def</code> and calls it.</h6>
+ 
+</div>
+<div class="code-block">
+    <span class="comment">19. Function Arguments & Return</span>
+    <span class="function">
+        def add(a, b):
+            return a + b
+        result = add(5, 3)
+        print(result)
+    </span>
+    <h6>Shows how to pass arguments to a function and return a value.</h6>
+ 
+    
+</div>
+<div class="code-block">
+    <span class="comment">20. Lambda Function</span>
+    <span class="function">
+        square = lambda x: x * x
+        print(square(4))
+    </span>
+    <h6>Demonstrates a simple lambda function for small operations. <code>lambda</code> creates anonymous functions.</h6>
+  
+</div><br><br>
+
+
+{% endblock %}
+<br><br><br><br>

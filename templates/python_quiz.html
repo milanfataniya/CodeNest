@@ -1,0 +1,316 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- ========================== STYLES ========================== -->
+<style>
+/* =============================================================
+   BASE LAYOUT & GLOBAL STYLES
+============================================================= */
+html, body {
+    background-color: #2d2f3a;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* =============================================================
+   MAIN CONTENT AREA
+============================================================= */
+main {
+    padding-bottom: 100px;
+}
+
+
+/* =============================================================
+   TIMER (TOP RIGHT)
+============================================================= */
+/* Watch-style timer */
+.watch-timer {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #1f1f2e;
+  border: 4px solid #10b981;
+  border-radius: 50%; /* makes it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #10b981;
+  z-index: 2000;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+@keyframes redglow {
+    0% {
+        box-shadow: 0 0 5px red;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 25px red;
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 5px red;
+        transform: scale(1);
+    }
+}
+
+.watch-timer.red {
+  color: #ff4d4d;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 20px #ff4d4d;
+  animation: none; /* stop green glow */
+}
+
+/* =============================================================
+   TIMEOUT POPUP
+============================================================= */
+#timeout-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 5000;
+}
+#timeout-popup.show {
+    opacity: 1;
+    pointer-events: all;
+}
+#timeout-popup .popup-content {
+    background: #1f1f2e;
+    border: 3px solid #10b981;
+    border-radius: 15px;
+    padding: 40px 50px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 20px #10b981;
+    animation: popIn 0.6s ease;
+}
+#timeout-popup i { font-size: 45px; color: #10b981; margin-bottom: 15px; }
+#timeout-popup h3 { color: #10b981; font-size: 26px; margin-bottom: 10px; }
+#timeout-popup p { color: #cbd5e1; font-size: 18px; }
+
+@keyframes popIn {
+    0%   { transform: scale(0.5); opacity: 0; }
+    80%  { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* =============================================================
+   BUTTONS
+============================================================= */
+.btn-main {
+    background-color: #10b981;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+.btn-main:hover { background-color: #0f9a70; transform: scale(1.05); }
+.btn-main:active { transform: scale(0.98); }
+
+/* =============================================================
+   RADIO BUTTONS
+============================================================= */
+input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    user-select: none;
+    margin-bottom: 10px;
+}
+label::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 2px;
+    width: 22px; height: 22px;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 6px; top: 8px;
+    width: 10px; height: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+}
+label:hover::before { border-color: #0f9a70; }
+
+/* =============================================================
+   RESULT MESSAGES
+============================================================= */
+.correct-msg { color: #10b981; font-weight: bold; }
+.wrong-msg { color: #ff4c4c; font-weight: bold; }
+.pass-msg, .fail-msg {
+    animation: pop 0.8s ease forwards;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 20px;
+}
+.pass-msg { background-color: #10b981; color: gold; }
+.fail-msg { background-color: #ff4c4c; color: white; }
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+</style>
+
+<!-- ===== Bootstrap Icons ===== -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+<main>
+<!-- ================= RESULT SECTION ================= -->
+{% if result %}
+<div style="max-width:700px; margin:0 auto; text-align:center; margin-bottom:20px;">
+  <h3 style="color:#14B8A6;">Python Quiz Completed!</h3>
+  <p style="color:#00CED1;">Total Questions: {{ total }}</p>
+  <p style="font-size:18px; font-weight:bold;">
+    <span class="text-success"><i class="bi bi-check-circle-fill"></i> Correct: {{ correct }}</span>
+    <span class="text-danger ms-3"><i class="bi bi-x-circle-fill"></i> Wrong: {{ wrong }}</span>
+  </p>
+
+  {% if correct >= 10 %}
+  <div class="pass-msg"><i class="bi bi-award-fill" style="font-size:36px;"></i><br>Congratulations! You Passed!</div>
+  {% else %}
+  <div class="fail-msg"><i class="bi bi-emoji-frown-fill" style="font-size:36px;"></i><br>Oops! You Failed. Try Again!</div>
+  {% endif %}
+
+  <br><br>
+  <form method="GET"><button class="btn-main" type="submit">Restart Quiz</button></form>
+  <div style="text-align:center; margin-top:20px;">
+    <button id="export-btn" type="button" class="btn-main">Export Results as CSV</button>
+  </div>
+</div>
+{% endif %}
+{% if not result %}
+<!-- ================= TIMER & POPUP ================= -->
+<div id="quiz-timer" class="watch-timer">
+  <span id="time">01:00</span>
+</div>
+
+
+<div id="timeout-popup">
+  <div class="popup-content">
+    <i class="bi bi-alarm-fill"></i>
+    <h3>Time’s Up!</h3>
+    <p>Your quiz is being submitted automatically.</p>
+  </div>
+</div>
+{% endif %}
+
+
+
+<!-- ================= QUIZ QUESTIONS ================= -->
+<form method="POST" style="max-width:700px; margin:0 auto;">
+  {% for q in questions %}
+  <div class="p-3 mb-3 rounded" style="background-color:#2a2a40; box-shadow:0 2px 5px rgba(0,0,0,0.3);">
+    <p class="fw-bold mb-3">Q{{ loop.index }}. {{ q.question }}</p>
+    {% set selected = user_answers.get(q.id, '') %}
+    {% for opt in [q.option1, q.option2, q.option3, q.option4] %}
+    <div>
+      <input type="radio" id="q{{ q.id }}_{{ loop.index }}" name="q{{ q.id }}" value="{{ opt }}" {% if result and selected == opt %}checked{% endif %} required>
+      <label for="q{{ q.id }}_{{ loop.index }}">{{ opt }}</label>
+    </div>
+    {% endfor %}
+
+    {% if result %}
+      {% if selected.lower() == q.answer.lower() %}
+        <p class="correct-msg"><i class="bi bi-check-circle-fill"></i> Correct!</p>
+      {% else %}
+        <p class="wrong-msg"><i class="bi bi-x-circle-fill"></i> Wrong!<br><span style="color:#10b981;">Correct Answer: {{ q.answer }}</span></p>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% if not result %}
+  <div class="text-center mt-3">
+    <button class="btn-main" type="submit">Submit Quiz</button>
+  </div>
+  {% endif %}
+</form>
+
+
+
+<!-- ================= SCRIPTS ================= -->
+{% if not result %}
+<script>
+/* ===== Countdown Timer (auto-submit) ===== */
+let timeLeft = 60; // seconds
+const timer = document.getElementById("time");
+const form = document.querySelector("form");
+const popup = document.getElementById("timeout-popup");
+const quizcontiner = document.getElementById("quiz-timer");
+const countdown = setInterval(() => {
+  timer.textContent = `00:${String(timeLeft).padStart(2, '0')}`;
+
+  if (timeLeft === 0) {
+    clearInterval(countdown);
+    popup.classList.add("show");
+    setTimeout(() => form.submit(), 5000); 
+  }
+
+if (timeLeft <= 10) {
+    quizcontiner.classList.add("red"); 
+    quizcontiner.style.animation = "redglow 1.5s ease-in-out infinite alternate";
+}
+
+  timeLeft--;
+}, 1000);
+</script>
+{% endif %}
+
+{% if result %}
+<script>
+/* ===== Disable radios after submit ===== */
+document.querySelectorAll('input[type="radio"]').forEach(r => {
+  r.disabled = true;
+  const label = document.querySelector(`label[for="${r.id}"]`);
+  if (!r.checked && label) label.style.opacity = "0.5";
+});
+
+/* ===== Export CSV ===== */
+document.getElementById("export-btn").addEventListener("click", function() {
+  let filename = prompt("Enter CSV file name", "python_quiz_results");
+  if (filename) {
+    if (!filename.toLowerCase().endsWith(".csv")) filename += ".csv";
+    window.location.href = `/export_csv?filename=${encodeURIComponent(filename)}`;
+  }
+});
+</script>
+{% endif %}
+</main>
+{% endblock %}

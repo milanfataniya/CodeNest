@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+    html, body {
+        background-color: #2d2f3a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding:  0;
+    }
+.container {
+    background-color: transparent !important; /* no white overlay */
+}
+.card {
+    background-color: #1e1e1e !important;
+}
+pre, code {
+    background-color: #1e1e1e !important;
+    color: #00ff99;
+    font-family: 'Consolas', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+}
+
+</style>
+
+<div class="container mt-5 pt-5">
+  <h5 class="text-success text-center mb-3">
+    Generated Code for: <span style="color: white;">{{ prompt }}</span>
+</h5>
+
+
+    <div class="card border-success p-3 shadow position-relative">
+        <!-- Copy button -->
+        <button id="copyBtn" class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2"
+                onclick="copyCode()">
+            <i class="fas fa-copy"></i> Copy
+        </button>
+
+        <pre id="codeBox" class="mb-0 p-3 rounded">
+<code id="codeOutput">{{ code_output }}</code>
+</pre>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/ai_code" class="btn btn-outline-success">
+            <i class="fas fa-robot"></i> Generate Another
+        </a>
+    </div>
+</div>
+<br><br><br><br>
+<script>
+function copyCode() {
+    const codeText = document.getElementById("codeOutput").innerText;
+    navigator.clipboard.writeText(codeText).then(() => {
+        const copyBtn = document.getElementById("copyBtn");
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.classList.remove('btn-outline-light');
+        copyBtn.classList.add('btn-success');
+        setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            copyBtn.classList.remove('btn-success');
+            copyBtn.classList.add('btn-outline-light');
+        }, 2000);
+    });
+}
+</script>
+{% endblock %}

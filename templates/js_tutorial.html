@@ -1,0 +1,251 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+
+    html, body {
+        background-color: #2d2f3a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #fff;
+        margin-top: 30px;
+    }
+
+    #myid {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        font-family: monospace;
+    }
+
+    .code-block {
+        width: 70%;
+        margin: 20px auto 40px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border-left: 4px solid #4a90e2;
+        font-family: monospace;
+    }
+
+    .code-block .comment { color: #6A9955; font-style: italic; }
+    .code-block .keyword { color: #569CD6; }
+    .code-block .string { color: #CE9178; }
+    .code-block .number { color: #B5CEA8; }
+
+    h6 {
+        background-color: #252734;
+        color: #fff;
+        padding: 10px 15px;
+        border-left: 4px solid #FFA500;
+        font-style: italic;
+        font-size: 14px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+</style>
+
+
+<h1>Introduction to JavaScript</h1>
+
+<div id="myid">
+    <p>
+        JavaScript (JS) is a high-level programming language that enables interactive web pages. 
+        It is used alongside HTML and CSS to create dynamic content, handle events, and manipulate the DOM.
+    </p>
+</div>
+
+<h2>JavaScript Examples</h2>
+
+<!-- 1. Display Alert -->
+<div class="code-block">
+<span class="comment">// 1. Display Alert</span><br>
+<span class="keyword">alert</span>(<span class="string">"Hello, World!"</span>);
+<h6>Shows a pop-up message in the browser.</h6>
+</div>
+
+<!-- 2. Console Log -->
+<div class="code-block">
+<span class="comment">// 2. Console Log</span><br>
+<span class="keyword">console</span>.log(<span class="string">"This is a message in console"</span>);
+<h6>Logs messages to the browser console, useful for debugging.</h6>
+</div>
+
+<!-- 3. Variables -->
+<div class="code-block">
+<span class="comment">// 3. Variables</span><br>
+<span class="keyword">let</span> x = <span class="number">5</span>;<br>
+<span class="keyword">const</span> y = <span class="number">10</span>;<br>
+<span class="keyword">var</span> z = x + y;
+<h6>Declares variables using let, const, and var.</h6>
+</div>
+
+<!-- 4. Data Types -->
+<div class="code-block">
+<span class="comment">// 4. Data Types</span><br>
+<span class="keyword">let</span> name = <span class="string">"Milan"</span>;<br>
+<span class="keyword">let</span> age = <span class="number">25</span>;<br>
+<span class="keyword">let</span> isStudent = <span class="keyword">true</span>;
+<h6>JavaScript has strings, numbers, booleans, arrays, objects, null, and undefined.</h6>
+</div>
+
+<!-- 5. Functions -->
+<div class="code-block">
+<span class="comment">// 5. Functions</span><br>
+<span class="keyword">function</span> greet() {<br>
+&nbsp;&nbsp;alert(<span class="string">"Hello!"</span>);<br>
+}
+<h6>Defines reusable code blocks called functions.</h6>
+</div>
+
+<!-- 6. Events -->
+<div class="code-block">
+<span class="comment">// 6. Events</span><br>
+<span class="keyword">document</span>.getElementById(<span class="string">"btn"</span>).onclick = <span class="keyword">function</span>() {<br>
+&nbsp;&nbsp;alert(<span class="string">"Button Clicked!"</span>);<br>
+};
+<h6>Handles user events like clicks, hover, etc.</h6>
+</div>
+
+<!-- 7. Conditional Statements -->
+<div class="code-block">
+<span class="comment">// 7. If-Else</span><br>
+<span class="keyword">let</span> num = <span class="number">10</span>;<br>
+<span class="keyword">if</span>(num > 5) {<br>
+&nbsp;&nbsp;console.log(<span class="string">"Greater than 5"</span>);<br>
+} <span class="keyword">else</span> {<br>
+&nbsp;&nbsp;console.log(<span class="string">"Smaller or equal 5"</span>);<br>
+}
+<h6>Executes code based on conditions.</h6>
+</div>
+
+<!-- 8. Loops -->
+<div class="code-block">
+<span class="comment">// 8. For Loop</span><br>
+<span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {<br>
+&nbsp;&nbsp;console.log(i);<br>
+}
+<h6>Repeats code multiple times using loops.</h6>
+</div>
+
+<!-- 9. Arrays -->
+<div class="code-block">
+<span class="comment">// 9. Arrays</span><br>
+<span class="keyword">let</span> fruits = [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Mango"</span>];<br>
+console.log(fruits[<span class="number">1</span>]);
+<h6>Arrays store multiple values in a single variable.</h6>
+</div>
+
+<!-- 10. Objects -->
+<div class="code-block">
+<span class="comment">// 10. Objects</span><br>
+<span class="keyword">let</span> person = {<br>
+&nbsp;&nbsp;name: <span class="string">"Milan"</span>,<br>
+&nbsp;&nbsp;age: <span class="number">25</span><br>
+};<br>
+console.log(person.name);
+<h6>Objects store key-value pairs for structured data.</h6>
+</div>
+
+<!-- 11. String Methods -->
+<div class="code-block">
+<span class="comment">// 11. String Methods</span><br>
+<span class="keyword">let</span> str = <span class="string">"Hello World"</span>;<br>
+console.log(str.toUpperCase());
+<h6>JavaScript provides methods to manipulate strings.</h6>
+</div>
+
+<!-- 12. Math -->
+<div class="code-block">
+<span class="comment">// 12. Math Operations</span><br>
+console.log(Math.sqrt(<span class="number">16</span>));<br>
+console.log(Math.random());
+<h6>Math object provides mathematical functions.</h6>
+</div>
+
+<!-- 13. Date -->
+<div class="code-block">
+<span class="comment">// 13. Date</span><br>
+<span class="keyword">let</span> today = <span class="keyword">new</span> Date();<br>
+console.log(today.getFullYear());
+<h6>JavaScript Date object handles dates and times.</h6>
+</div>
+
+<!-- 14. DOM Manipulation -->
+<div class="code-block">
+<span class="comment">// 14. DOM Manipulation</span><br>
+<span class="keyword">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML = <span class="string">"Hello JavaScript"</span>;
+<h6>Change HTML content dynamically using JavaScript.</h6>
+</div>
+
+<!-- 15. Template Literals -->
+<div class="code-block">
+<span class="comment">// 15. Template Literals</span><br>
+<span class="keyword">let</span> name = <span class="string">"Milan"</span>;<br>
+console.log(`Hello, ${name}!`);
+<h6>Template literals allow embedding variables inside strings.</h6>
+</div>
+
+<!-- 16. Arrow Functions -->
+<div class="code-block">
+<span class="comment">// 16. Arrow Functions</span><br>
+<span class="keyword">const</span> add = (a, b) =&gt; a + b;<br>
+console.log(add(5,3));
+<h6>Shorter syntax for defining functions.</h6>
+</div>
+
+<!-- 17. Events with addEventListener -->
+<div class="code-block">
+<span class="comment">// 17. addEventListener</span><br>
+<span class="keyword">document</span>.getElementById(<span class="string">"btn"</span>).addEventListener(<span class="string">"click"</span>, <span class="keyword">function</span>() {<br>
+&nbsp;&nbsp;alert(<span class="string">"Clicked!"</span>);<br>
+});
+<h6>Add multiple event listeners to elements.</h6>
+</div>
+
+<!-- 18. JSON -->
+<div class="code-block">
+<span class="comment">// 18. JSON</span><br>
+<span class="keyword">let</span> data = '{"name":"Milan","age":25}';<br>
+<span class="keyword">let</span> obj = JSON.parse(data);<br>
+console.log(obj.name);
+<h6>Parse JSON strings into JavaScript objects.</h6>
+</div>
+
+<!-- 19. Local Storage -->
+<div class="code-block">
+<span class="comment">// 19. Local Storage</span><br>
+<span class="keyword">localStorage</span>.setItem(<span class="string">"name"</span>, <span class="string">"Milan"</span>);<br>
+console.log(localStorage.getItem(<span class="string">"name"</span>));
+<h6>Store data in browser even after page reload.</h6>
+</div>
+
+<!-- 20. Timers -->
+<div class="code-block">
+<span class="comment">// 20. setTimeout</span><br>
+<span class="keyword">setTimeout</span>(() =&gt; {<br>
+&nbsp;&nbsp;console.log(<span class="string">"Hello after 2 seconds"</span>);<br>
+}, <span class="number">2000</span>);
+<h6>Execute code after a delay using setTimeout.</h6>
+</div>
+
+<br><br><br>
+{% endblock %}

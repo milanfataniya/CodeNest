@@ -1,0 +1,273 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+
+
+    html, body {
+        background-color: #2d2f3a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #fff;
+        margin-top: 30px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    #myid {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        font-family: monospace;
+    }
+
+    #info {
+        background-color: #1e1f29;
+        color: #ddd;
+        padding: 25px 30px;
+        border-radius: 12px;
+        max-width: 700px;
+        margin: 30px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    #info h2 {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+    }
+
+    .code-block {
+        width: 70%;
+        margin: 20px auto 40px auto;
+        padding: 20px;
+        background-color: #1e1f29;
+        color: #fff;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border-left: 4px solid #4a90e2;
+        font-family: monospace;
+   
+    }
+
+    .code-block .tag { color: #569CD6; }
+    .code-block .attr { color: #9CDCFE; }
+    .code-block .value { color: #CE9178; }
+    .code-block .comment { color: #6A9955; font-style: italic; }
+
+ h6 {
+    background-color: #252734;  /* Slightly lighter dark background */
+    color: #fff;                 /* White text for better readability */
+    padding: 10px 15px;
+    border-left: 4px solid #FFA500; /* Orange border to indicate explanation */
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+</style>
+
+<h1>Introduction to HTML</h1>
+<div id="myid">
+    <p>
+        HTML (HyperText Markup Language) is the standard language used to create web pages. 
+        It defines the structure and content of a webpage using a system of elements called tags.
+         Every website you visit is built with HTML at its core. It provides the skeleton of a webpage, 
+        while CSS adds style and JavaScript adds interactivity.
+    </p>
+   
+</div>
+
+
+
+<h2>HTML Examples</h2>
+<div class="code-block">
+<span class="comment">&lt;!-- 1. Paragraphs and Line Breaks --&gt;</span><br>
+<span class="tag">&lt;p&gt;</span>This is a paragraph.<span class="tag">&lt;/p&gt;</span><br>
+<span class="tag">&lt;p&gt;</span>This is another paragraph.<span class="tag">&lt;/p&gt;</span><br>
+<span class="tag">&lt;br&gt;</span>
+<h6><code>&lt;p&gt;</code> defines a paragraph, and <code>&lt;br&gt;</code> adds a line break.</h6>
+</div>
+<div class="code-block">
+<span class="comment">&lt;!-- 2. Basic HTML Structure --&gt;</span><br>
+<span class="tag">&lt;!DOCTYPE</span> <span class="attr">html</span><span class="tag">&gt;</span><br>
+<span class="tag">&lt;html&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>My First Page<span class="tag">&lt;/title&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Welcome to my first webpage!<br>
+&nbsp;&nbsp;<span class="tag">&lt;/body&gt;</span><br>
+<span class="tag">&lt;/html&gt;</span>
+<h6>This is the basic structure of an HTML document.</h6>
+</div>
+
+
+
+
+
+<div class="code-block">
+<span class="comment">&lt;!-- 4. Text Formatting --&gt;</span><br>
+<span class="tag">&lt;b&gt;</span>Bold Text<span class="tag">&lt;/b&gt;</span><br>
+<span class="tag">&lt;i&gt;</span>Italic Text<span class="tag">&lt;/i&gt;</span><br>
+<span class="tag">&lt;u&gt;</span>Underlined Text<span class="tag">&lt;/u&gt;</span><br>
+<span class="tag">&lt;mark&gt;</span>Highlighted Text<span class="tag">&lt;/mark&gt;</span>
+<h6>Formatting tags are used to style text within a document.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 5. Links --&gt;</span><br>
+<span class="tag">&lt;a</span> <span class="attr">href=</span><span class="value">"https://www.google.com"</span><span class="tag">&gt;</span>Visit Google<span class="tag">&lt;/a&gt;</span>
+<h6><code>&lt;a&gt;</code> defines a hyperlink using the <code>href</code> attribute.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 6. Images --&gt;</span><br>
+<span class="tag">&lt;img</span> <span class="attr">src=</span><span class="value">"image.jpg"</span> <span class="attr">alt=</span><span class="value">"My Image"</span> <span class="tag">/&gt;</span>
+<h6><code>&lt;img&gt;</code> embeds images using the <code>src</code> attribute.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 7. Lists --&gt;</span><br>
+<span class="tag">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Apple<span class="tag">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Banana<span class="tag">&lt;/li&gt;</span><br>
+<span class="tag">&lt;/ul&gt;</span><br><br>
+<span class="tag">&lt;ol&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>HTML<span class="tag">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>CSS<span class="tag">&lt;/li&gt;</span><br>
+<span class="tag">&lt;/ol&gt;</span>
+<h6><code>&lt;ul&gt;</code> creates unordered lists and <code>&lt;ol&gt;</code> creates ordered lists.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 8. Tables --&gt;</span><br>
+<span class="tag">&lt;table</span> <span class="attr">border=</span><span class="value">"1"</span><span class="tag">&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;th&gt;</span>Name<span class="tag">&lt;/th&gt;</span><span class="tag">&lt;th&gt;</span>Age<span class="tag">&lt;/th&gt;</span><span class="tag">&lt;/tr&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>John<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td&gt;</span>25<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span><br>
+<span class="tag">&lt;/table&gt;</span>
+<h6>HTML tables are created using <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code> tags.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 9. Forms --&gt;</span><br>
+<span class="tag">&lt;form&gt;</span><br>
+&nbsp;&nbsp;Name: <span class="tag">&lt;input</span> <span class="attr">type=</span><span class="value">"text"</span><span class="tag">&gt;</span><br>
+&nbsp;&nbsp;Email: <span class="tag">&lt;input</span> <span class="attr">type=</span><span class="value">"email"</span><span class="tag">&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;input</span> <span class="attr">type=</span><span class="value">"submit"</span> <span class="attr">value=</span><span class="value">"Send"</span><span class="tag">&gt;</span><br>
+<span class="tag">&lt;/form&gt;</span>
+<h6>Forms collect user input using <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;button&gt;</code>.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 10. Div and Span --&gt;</span><br>
+<span class="tag">&lt;div&gt;</span>This is a division.<span class="tag">&lt;/div&gt;</span><br>
+<span class="tag">&lt;span&gt;</span>This is inline text.<span class="tag">&lt;/span&gt;</span>
+<h6><code>&lt;div&gt;</code> defines a block container, while <code>&lt;span&gt;</code> is inline.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 11. Comments --&gt;</span><br>
+<span class="comment">&lt;!-- This is an HTML comment --&gt;</span>
+<h6>HTML comments are added with <code>&lt;!-- --&gt;</code> and are ignored by browsers.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 12. Entities --&gt;</span><br>
+&lt;p&gt;Copyright &amp;copy; 2025 CodeNest&lt;/p&gt;
+<h6>HTML entities are used for reserved characters. Example: <code>&amp;copy;</code> → ©</h6>
+</div>
+<div class="code-block">
+<span class="comment">&lt;!-- 13. Audio and Video --&gt;</span><br>
+<span class="tag">&lt;audio</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src=</span><span class="value">"song.mp3"</span> <span class="attr">type=</span><span class="value">"audio/mpeg"</span><span class="tag">&gt;</span>
+  Your browser does not support the audio element.
+<span class="tag">&lt;/audio&gt;</span><br><br>
+
+<span class="tag">&lt;video</span> <span class="attr">width=</span><span class="value">"320"</span> <span class="attr">height=</span><span class="value">"240"</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src=</span><span class="value">"movie.mp4"</span> <span class="attr">type=</span><span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  Your browser does not support the video tag.
+<span class="tag">&lt;/video&gt;</span>
+<h6>Embed audio and video using <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags with controls.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 14. Buttons --&gt;</span><br>
+<span class="tag">&lt;button&gt;</span>Click Me<span class="tag">&lt;/button&gt;</span><br>
+<span class="tag">&lt;input</span> <span class="attr">type=</span><span class="value">"button"</span> <span class="attr">value=</span><span class="value">"Press Me"</span><span class="tag">&gt;</span>
+<h6>Buttons can be created using <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code>.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 15. Textarea in Form --&gt;</span><br>
+<span class="tag">&lt;form&gt;</span><br>
+&nbsp;&nbsp;Message:<br>
+&nbsp;&nbsp;<span class="tag">&lt;textarea</span> <span class="attr">rows=</span><span class="value">"4"</span> <span class="attr">cols=</span><span class="value">"50"</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;input</span> <span class="attr">type=</span><span class="value">"submit"</span> <span class="attr">value=</span><span class="value">"Send"</span><span class="tag">&gt;</span><br>
+<span class="tag">&lt;/form&gt;</span>
+<h6><code>&lt;textarea&gt;</code> is used for multi-line text input in forms.</h6>
+</div>
+
+
+<div class="code-block">
+<span class="comment">&lt;!-- 16. Iframe --&gt;</span><br>
+<span class="tag">&lt;iframe</span> <span class="attr">src=</span><span class="value">"https://www.example.com"</span> <span class="attr">width=</span><span class="value">"600"</span> <span class="attr">height=</span><span class="value">"400"</span><span class="tag">&gt;</span><span class="tag">&lt;/iframe&gt;</span>
+<h6><code>&lt;iframe&gt;</code> embeds another webpage inside your webpage.</h6>
+</div>
+
+
+<div class="code-block">
+<span class="comment">&lt;!-- 17. Div with Classes --&gt;</span><br>
+<span class="tag">&lt;div</span> <span class="attr">class=</span><span class="value">"container"</span><span class="tag">&gt;</span>
+  Hello World!
+<span class="tag">&lt;/div&gt;</span>
+<h6><code>&lt;div&gt;</code> is a block container and can be styled using <code>class</code> or <code>id</code>.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 18. Span Example --&gt;</span><br>
+<span class="tag">&lt;p&gt;</span>This is <span class="tag">&lt;span</span> <span class="attr">style=</span><span class="value">"color:red;"</span><span class="tag">&gt;</span>red text<span class="tag">&lt;/span&gt;</span> in a paragraph.<span class="tag">&lt;/p&gt;</span>
+<h6><code>&lt;span&gt;</code> is used to style inline parts of text.</h6>
+</div>
+
+<div class="code-block">
+<span class="comment">&lt;!-- 19. List of Links --&gt;</span><br>
+<span class="tag">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span><span class="tag">&lt;a</span> <span class="attr">href=</span><span class="value">"https://www.google.com"</span><span class="tag">&gt;</span>Google<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span><span class="tag">&lt;a</span> <span class="attr">href=</span><span class="value">"https://www.youtube.com"</span><span class="tag">&gt;</span>YouTube<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span><br>
+<span class="tag">&lt;/ul&gt;</span>
+<h6>Lists can contain links for navigation.</h6>
+</div>
+
+
+<div class="code-block">
+<span class="comment">&lt;!-- 20. Meta Tags --&gt;</span><br>
+<span class="tag">&lt;meta</span> <span class="attr">charset=</span><span class="value">"UTF-8"</span> <span class="tag">/&gt;</span><br>
+<span class="tag">&lt;meta</span> <span class="attr">name=</span><span class="value">"viewport"</span> <span class="attr">content=</span><span class="value">"width=device-width, initial-scale=1.0"</span> <span class="tag">/&gt;</span>
+<h6>Meta tags provide metadata like character set and responsive behavior.</h6>
+</div>
+
+<br><br><br><br>
+{% endblock %}

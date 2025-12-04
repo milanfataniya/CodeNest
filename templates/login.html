@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | CodeNest</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* BODY */
+body {
+  background-color: #1e293b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* MAIN CONTAINER */
+.container {
+  background-color: #1e293b;
+  border-radius: 15px;
+  display: flex;
+  overflow: hidden;
+  width: 850px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* LEFT (WELCOME) PANEL */
+.left {
+  flex: 1.1;
+  background-color: #0f172a;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+}
+
+.left h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.left p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 320px;
+}
+
+.left ul {
+  list-style: none;
+  text-align: left;
+  margin: 15px 0 25px 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.left ul li::before {
+  content: "•";
+  color: #38bdf8;
+  margin-right: 10px;
+}
+
+/* SIGN UP BUTTON */
+.left button {
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.left button:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.left img {
+  max-width: 200px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+
+/* RIGHT (LOGIN) PANEL */
+.right {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #0f172a;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 0 1px #38bdf8;
+}
+
+/* PASSWORD WRAPPER */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+/* SIGN IN BUTTON */
+button[type="submit"] {
+  background-color: #38bdf8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0ea5e9;
+}
+
+/* SIGNUP LINK */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #38bdf8;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column; /* changed from column-reverse */
+    border-radius: 20px;
+  }
+  .left {
+    border-radius: 0;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    padding: 40px 20px;
+  }
+  .right {
+    padding: 40px 30px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- LEFT -->
+    <div class="left">
+            <img src="{{ url_for('static', filename='images/coder01.png') }}" alt="GIF Example" width="200">
+      <h3>Welcome Back to CodeNest!</h3><br>
+      <p>Sign in to access your coding workspace, tutorials, and quizzes.</p>
+  
+      <button onclick="window.location.href='/register'">SIGN UP</button>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <h2>Sign In</h2>
+      <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Password" required onpaste="return false">
+          <i id="eye" class="bi bi-eye-slash toggle-eye" onclick="togglePassword('password', this)"></i>
+        </div>
+
+        <button type="submit">Sign In</button>
+        <a href="/register">Don’t have an account? Sign Up</a>
+  
+
+        <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
+
+      </form>
+    </div>
+  </div>
+
+<script>
+function togglePassword(id, eyeIcon) {
+  const input = document.getElementById(id);
+  if (input.type === "password") {
+    input.type = "text";
+    eyeIcon.classList.replace("bi-eye-slash", "bi-eye");
+  } else {
+    input.type = "password";
+    eyeIcon.classList.replace("bi-eye", "bi-eye-slash");
+  }
+}
+
+/*password paste*/
+
+document.getElementById('password').addEventListener('paste', function(e){
+    e.preventDefault(); // pasteને અટકાવો
+    alert("Paste not allowed in password field!");
+});
+
+</script>
+
+</body>
+</html>

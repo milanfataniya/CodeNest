@@ -1,0 +1,343 @@
+{% include 'navbar.html' %}
+{% block content %}
+
+<style>
+html, body {
+    background-color: #2d2f3a;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make main content grow to push footer down */
+.main-container {
+    flex: 1;
+}
+
+/* Typewriter Heading */
+h1#type-text {
+    text-align: center;
+    color: #10b981;
+    font-size: 2rem;
+    margin: 0px 20px 20px 20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    min-height: 50px;
+}
+
+/* Card Wrapper */
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+/* Individual Cards */
+.card {
+    background-color: rgba(30,41,59,0.95);
+    border-radius: 12px;
+    padding: 20px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.6);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #10b981;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    margin-bottom: 8px;
+    color: #f1f5f9;
+}
+
+.card-text {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.card-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+}
+
+/* Features Section */
+.features-section {
+    margin: 80px auto;
+    text-align: center;
+    max-width: 1200px;
+    background: rgba(15,23,42,0.95);
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+}
+
+.features-section h2 {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+
+.features-section .card-wrapper {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: stretch;
+    column-gap: 0px; /* 👈 Super small horizontal space */
+    row-gap: 15px;   
+    padding: 10px 0;
+}
+
+
+
+/* 🎨 Individual Feature Cards */
+.features-section .card {
+    background-color: rgba(30,41,59,0.95);
+    border-radius: 15px;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 330px;
+    text-align: center;
+}
+
+.features-section .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.7);
+}
+
+.features-section .card-icon {
+    font-size: 2.6rem;
+    color: #10b981;
+    margin-bottom: 15px;
+}
+
+.features-section .card-title {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.features-section .card-text {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 1024px) {
+    .features-section .card-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-section .card-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Footer */
+footer {
+    background: #1e293b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .features-section .card-wrapper { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .features-section .card-wrapper { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="main-container">
+    <h1 id="type-text">Welcome To CodeNest!</h1>
+
+
+    <div class="card-wrapper">
+        <div class="card">
+                <i class="fas fa-robot card-icon"></i>
+                <h3 class="card-title">AI Code Generator</h3>
+                <p class="card-text">Instantly generate code from your text prompts using AI.</p>
+                <button class="card-btn" onclick="location.href='/ai_code'">Explore Now</button>
+        </div>
+
+
+
+        <div class="card">
+            <i class="fab fa-python card-icon"></i>
+            <h3 class="card-title">Online IDE</h3>
+            <p class="card-text">Write, run, and test your code directly in your browser with real-time output.</p>
+            <button class="card-btn" onclick="location.href='/ide'">Launch IDE</button>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-laptop-code card-icon"></i>
+            <h3 class="card-title">Web Editor</h3>
+            <p class="card-text">Write and test your HTML, CSS, and JS code directly in your browser with real-time preview.</p>
+            <button class="card-btn" onclick="location.href='/editor'">Launch Editor</button>
+        </div>
+        <div class="card">
+        <i class="fab fa-question card-icon"></i>
+        <h3 class="card-title">Python Quiz</h3>
+        <p class="card-text">Test your Python knowledge with multiple-choice questions and check your results instantly.</p>
+        <button class="card-btn" onclick="location.href='/python_rule'">Start Quiz</button>
+        </div>
+        <div class="card">
+            <i class="fab fa-python card-icon"></i>
+            <h3 class="card-title">Python Tutorial</h3>
+            <p class="card-text">Learn Python step by step with easy-to-follow examples and exercises.</p>
+            <button class="card-btn" onclick="location.href='/python_tutorial'">Start Tutorial</button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2><i class="fas fa-lightbulb" style="color:#10b981; margin-right:15px;"></i>Features of CodeNest</h2>
+        
+        <div class="card-wrapper">
+            <div class="card">
+                 <i class="fas fa-robot card-icon"></i>
+                 <h3 class="card-title">AI Code Generator</h3>
+                 <p class="card-text">Turn your text prompts into working code using AI.</p>
+            </div>
+                    <div class="card">
+                <i class="fas fa-comments card-icon"></i>
+                <h3 class="card-title">AI Chatbot</h3>
+                <p class="card-text">Ask CodeNest AI anything about this site — features, tutorials, or how to get started!</p>
+          
+</div>
+            <div class="card">
+                <i class="fas fa-laptop-code card-icon"></i>
+                <h3 class="card-title">Interactive Learning</h3>
+                <p class="card-text">Real-time code execution for an interactive learning environment.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-code card-icon"></i>
+                <h3 class="card-title">Multi-language Support</h3>
+                <p class="card-text">Supports Python, HTML, CSS, and JavaScript for diverse coding practice.</p>
+            </div>
+
+           
+
+            <div class="card">
+                <i class="fas fa-eye card-icon"></i>
+                <h3 class="card-title">Instant Preview</h3>
+                <p class="card-text">Preview web development and Python code instantly in the browser.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-question-circle card-icon"></i>
+                <h3 class="card-title">Quizzes & Challenges</h3>
+                <p class="card-text">Test your knowledge with quizzes and coding challenges.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-book-open card-icon"></i>
+                <h3 class="card-title">Tutorials</h3>
+                <p class="card-text">Step-by-step tutorials for easy and structured learning.</p>
+            </div>
+            <div class="card text-center p-4" style="background: #1e293b; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.3); color:#f8fafc;">
+                <i class="fas fa-lightbulb fa-3x mb-3" style="color:#10b981;"></i>
+                <h3 class="card-title mb-2">Share Your Ideas</h3>
+                <p class="card-text" style="color:#e2e8f0;">Users can share their project ideas and showcase them to everyone.</p>
+  
+            </div>
+
+            <div class="card">
+                <i class="fas fa-moon card-icon"></i>
+                <h3 class="card-title">Dark Mode</h3>
+                <p class="card-text">User-friendly interface with dark mode support for comfortable coding.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-globe card-icon"></i>
+                <h3 class="card-title">Browser-Based</h3>
+                <p class="card-text">Completely browser-based — no setup required!</p>
+            </div>
+             <div class="card">
+                <i class="fas fa-mobile-alt card-icon"></i>
+                <h3 class="card-title">Responsive UI</h3>
+                <p class="card-text">Clean, modern, and responsive interface for distraction-free learning.</p>
+            </div>
+            <div class="card">
+                 <i class="fas fa-rocket card-icon"></i>
+                <h3 class="card-title">Fast Loading</h3>
+                 <p class="card-text">All pages and tools load quickly so you can start coding without waiting.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<br><br><br><br>
+
+<script>
+
+const text = "Welcome to CodeNest - Learn, Code & Quizz!";
+let i = 0;
+const speed = 100;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("type-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+typeWriter();
+
+<script>
+    // Disable back button after login
+    (function() {
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+    })();
+</script>
+
+</script>
+
+{% endblock %}
